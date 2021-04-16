@@ -38,8 +38,20 @@ void task2() {
         cout << *(pointer++) << endl;
     }
 }
+void task6() 
+{
+    int* x = new int;
+    //cout << *x << endl; // we shouldn't do it, it's uninitialized memory
+    *x = 6;
+    cout << *x << endl;
+    delete x;
+    x = NULL;
+    //cout << *x << endl;  // we shouldn't do it, we have deleted the object
+}
 
 int main()
 {
+    int size = 10;
+    int* myArray = new int[size];
 
 }
