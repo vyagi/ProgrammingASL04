@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Excercises
 {
@@ -68,20 +69,38 @@ namespace Excercises
 
             //Task 10 b)
 
-            var myArray = new int[4];
-            for (var i = 0; i < myArray.Length; i++)
+            // var myArray = new int[4];
+            // for (var i = 0; i < myArray.Length; i++)
+            // {
+            //     Console.WriteLine($"Enter the integer number {i+1}");
+            //     myArray[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            //
+            // var sum = 0;
+            // foreach (var element in myArray)
+            // {
+            //     sum += element;
+            // }
+            //
+            // var average = 1.0 * sum / myArray.Length;
+            // Console.WriteLine($"The sum is {sum} and the average is {average}");
+
+            //Task 10 c
+            var myList = new List<int>();
+
+            for (var i = 0; i < 4; i++)
             {
                 Console.WriteLine($"Enter the integer number {i+1}");
-                myArray[i] = Convert.ToInt32(Console.ReadLine());
-            }
 
+                myList.Add(Convert.ToInt32(Console.ReadLine()));
+            }
             var sum = 0;
-            foreach (var element in myArray)
+
+            foreach (var element in myList)
             {
                 sum += element;
             }
-
-            var average = 1.0 * sum / myArray.Length;
+            var average = 1.0 * sum / myList.Count;
             Console.WriteLine($"The sum is {sum} and the average is {average}");
         }
     }
