@@ -37,14 +37,34 @@ namespace Excercises
 
             //Task 7
 
-            Console.WriteLine("Enter the base of the triangle");
-            var triangleBase = Convert.ToDouble(Console.ReadLine());
+            // Console.WriteLine("Enter the base of the triangle");
+            // var triangleBase = Convert.ToDouble(Console.ReadLine());
+            //
+            // Console.WriteLine("Enter the height of the triangle");
+            // var triangleHeight = Convert.ToDouble(Console.ReadLine());
+            //
+            // var area = triangleBase * triangleHeight / 2;
+            // Console.WriteLine($"The area of the triangle is {area}");
 
-            Console.WriteLine("Enter the height of the triangle");
-            var triangleHeight = Convert.ToDouble(Console.ReadLine());
+            //Task 8 and 9 - homework
 
-            var area = triangleBase * triangleHeight / 2;
-            Console.WriteLine($"The area of the triangle is {area}");
+            //Task 10 a)
+            Console.WriteLine("Enter the first integer number");
+            var a = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter the first integer number");
+            var b = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter the first integer number");
+            var c = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter the first integer number");
+            var d = Convert.ToInt32(Console.ReadLine());
+
+            var sum = a + b + c + d;
+            var average = sum / 4.0;
+
+            Console.WriteLine($"The sum is {sum} and the average is {average}");
         }
     }
 }
