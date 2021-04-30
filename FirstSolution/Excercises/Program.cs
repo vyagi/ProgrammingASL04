@@ -30,11 +30,21 @@ namespace Excercises
             // Console.WriteLine($"Area is {area}");
 
             //Task 6
-            var radius = Convert.ToDouble(Console.ReadLine());
-            var area = Math.PI * radius * radius;
-            var circumference = 2 * Math.PI * radius;
-            Console.WriteLine($"Area is {area} and the circumference is {circumference}");
+            // var radius = Convert.ToDouble(Console.ReadLine());
+            // var area = Math.PI * radius * radius;
+            // var circumference = 2 * Math.PI * radius;
+            // Console.WriteLine($"Area is {area} and the circumference is {circumference}");
 
+            //Task 7
+
+            Console.WriteLine("Enter the base of the triangle");
+            var triangleBase = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Enter the height of the triangle");
+            var triangleHeight = Convert.ToDouble(Console.ReadLine());
+
+            var area = triangleBase * triangleHeight / 2;
+            Console.WriteLine($"The area of the triangle is {area}");
         }
     }
 }
