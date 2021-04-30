@@ -25,9 +25,16 @@ namespace Excercises
             // Console.WriteLine($"Hello {name}");
 
             //Task 5
+            // var radius = Convert.ToDouble(Console.ReadLine());
+            // var area = Math.PI * radius * radius;
+            // Console.WriteLine($"Area is {area}");
+
+            //Task 6
             var radius = Convert.ToDouble(Console.ReadLine());
             var area = Math.PI * radius * radius;
-            Console.WriteLine($"Area is {area}");
+            var circumference = 2 * Math.PI * radius;
+            Console.WriteLine($"Area is {area} and the circumference is {circumference}");
+
         }
     }
 }
