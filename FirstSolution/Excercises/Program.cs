@@ -49,21 +49,39 @@ namespace Excercises
             //Task 8 and 9 - homework
 
             //Task 10 a)
-            Console.WriteLine("Enter the first integer number");
-            var a = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Enter the first integer number");
+            // var a = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine("Enter the first integer number");
+            // var b = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine("Enter the first integer number");
+            // var c = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine("Enter the first integer number");
+            // var d = Convert.ToInt32(Console.ReadLine());
+            //
+            // var sum = a + b + c + d;
+            // var average = sum / 4.0;
+            //
+            // Console.WriteLine($"The sum is {sum} and the average is {average}");
 
-            Console.WriteLine("Enter the first integer number");
-            var b = Convert.ToInt32(Console.ReadLine());
+            //Task 10 b)
 
-            Console.WriteLine("Enter the first integer number");
-            var c = Convert.ToInt32(Console.ReadLine());
+            var myArray = new int[4];
+            for (var i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine($"Enter the integer number {i+1}");
+                myArray[i] = Convert.ToInt32(Console.ReadLine());
+            }
 
-            Console.WriteLine("Enter the first integer number");
-            var d = Convert.ToInt32(Console.ReadLine());
+            var sum = 0;
+            foreach (var element in myArray)
+            {
+                sum += element;
+            }
 
-            var sum = a + b + c + d;
-            var average = sum / 4.0;
-
+            var average = 1.0 * sum / myArray.Length;
             Console.WriteLine($"The sum is {sum} and the average is {average}");
         }
     }
