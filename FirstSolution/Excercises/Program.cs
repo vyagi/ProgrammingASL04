@@ -9,7 +9,9 @@ namespace Excercises
             //Task 1
             // Console.WriteLine("Hello");
 
-
+            //Task 2
+            var name = "Marcin";
+            Console.WriteLine(name);
         }
     }
 }
