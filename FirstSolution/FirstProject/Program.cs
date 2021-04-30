@@ -6,11 +6,53 @@ namespace FirstProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("What's your name");
 
+
+        }
+
+        void Method3()
+        {
+            int a = 10;
+            Console.WriteLine(a);
+            Console.WriteLine(a.GetType()); //type us System.Int32
+            Console.WriteLine(System.Int32.MaxValue);
+            Console.WriteLine(System.Int32.MinValue);
+
+            string b = "marcin";
+            Console.WriteLine(b);
+            Console.WriteLine(b.Length);
+            Console.WriteLine(b.Contains("a"));
+            Console.WriteLine(b.EndsWith("w"));
+            Console.WriteLine(b.ToUpper());
+
+            int[] c = new int[10];
+            Console.WriteLine(c);
+            Console.WriteLine(c.Length);
+
+            object e = new object();
+
+            DateTime dt = DateTime.Now;
+            Console.WriteLine(dt);
+            DateTime dt1 = dt.AddDays(25);
+            Console.WriteLine(dt1);
+            Console.WriteLine(dt1.Month);
+            Console.WriteLine(dt1.Year);
+            Console.WriteLine(dt1.DayOfWeek);
+            //Everything in c# is an object !!!
+        }
+
+        void Method2()
+        {
+            Console.WriteLine("Whats your name?");
             var name = Console.ReadLine();
-
-            Console.WriteLine("Hello " + name);
+            if (name == "Marcin")
+            {
+                Console.WriteLine("Hello " + name);
+            }
+            else
+            {
+                Console.WriteLine("I dont know you, " + name);
+            }
         }
 
         void Method1()
