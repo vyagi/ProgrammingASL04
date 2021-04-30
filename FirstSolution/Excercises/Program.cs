@@ -21,8 +21,13 @@ namespace Excercises
             // Console.WriteLine($"Hello {name}");  //Use this 
 
             //Task 4
-            var name = Console.ReadLine();
-            Console.WriteLine($"Hello {name}");
+            // var name = Console.ReadLine();
+            // Console.WriteLine($"Hello {name}");
+
+            //Task 5
+            var radius = Convert.ToDouble(Console.ReadLine());
+            var area = Math.PI * radius * radius;
+            Console.WriteLine($"Area is {area}");
         }
     }
 }
