@@ -6,7 +6,16 @@ namespace FirstProject
     {
         static void Main(string[] args)
         {
+            DateTime today = DateTime.Today;
+            DateTime myBirthDay = new DateTime(1978, 11, 10);
 
+            TimeSpan timeSpan = today - myBirthDay;
+            Console.WriteLine(timeSpan.Days);
+
+            TimeSpan tenThousandDays = new TimeSpan(10000, 0, 0, 0);
+
+            DateTime celebration =  myBirthDay + tenThousandDays;
+            Console.WriteLine(celebration);
 
         }
 
