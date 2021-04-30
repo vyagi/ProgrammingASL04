@@ -14,12 +14,15 @@ namespace Excercises
             // Console.WriteLine(name);
 
             //Task 3
-            var name = "Marcin";
-            Console.WriteLine("Hello {0}", name); //This is old school
-            Console.WriteLine("Hello " + name); //Don't use it
-            Console.WriteLine(string.Format("Hello {0}", name)); // This is crappy old school
-            Console.WriteLine($"Hello {name}");  //Use this 
+            // var name = "Marcin";
+            // Console.WriteLine("Hello {0}", name); //This is old school
+            // Console.WriteLine("Hello " + name); //Don't use it
+            // Console.WriteLine(string.Format("Hello {0}", name)); // This is crappy old school
+            // Console.WriteLine($"Hello {name}");  //Use this 
 
+            //Task 4
+            var name = Console.ReadLine();
+            Console.WriteLine($"Hello {name}");
         }
     }
 }
