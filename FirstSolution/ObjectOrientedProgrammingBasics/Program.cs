@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Http.Headers;
 
 namespace ObjectOrientedProgrammingBasics
 {
@@ -8,6 +7,9 @@ namespace ObjectOrientedProgrammingBasics
         private int _height;
         private int _weight;
         private string _name;
+        private DateTime _dateOfBirth;
+
+        public bool IsAdult => DateTime.Today.Year - _dateOfBirth.Year >= 18;
 
         public int Height => _height;
 
@@ -18,8 +20,8 @@ namespace ObjectOrientedProgrammingBasics
             {
                 if (value <= 0)
                     throw new Exception("Weight should be positive");
-                
-                _height = value;
+
+                _weight = value;
             }
         }
 
@@ -35,49 +37,7 @@ namespace ObjectOrientedProgrammingBasics
             }
         }
 
-
-
-        //Java way
-        // public int GetHeight()
-        // {
-        //     return _height;
-        // }
-        //
-        // public void SetHeight(int newHeight)
-        // {
-        //     if (newHeight <= 0)
-        //         throw new Exception("Height should be positive");
-        //
-        //     _height = newHeight;
-        // }
-        //
-        // public int GetWeight()
-        // {
-        //     return _weight;
-        // }
-        //
-        // public void SetWeight(int newWeight)
-        // {
-        //     if (newWeight <= 0)
-        //         throw new Exception("Weight should be positive");
-        //
-        //     _height = newWeight;
-        // }
-        //
-        // public string GetName()
-        // {
-        //     return _name;
-        // }
-        //
-        // public void SetName(string newName)
-        // {
-        //     if (string.IsNullOrWhiteSpace(newName))
-        //         throw new Exception("Name cannot be null");
-        //
-        //     _name = newName;
-        // }
-
-        public Person(string name, int weight, int height)
+        public Person(string name, int weight, int height, DateTime dateOfBirth)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new Exception("Name cannot be null");
@@ -91,12 +51,11 @@ namespace ObjectOrientedProgrammingBasics
             _name = name;
             _weight = weight;
             _height = height;
+            _dateOfBirth = dateOfBirth;
         }
 
-        public double Bmi()
-        {
-            return 10000.0 * _weight / (_height * _height);
-        }
+        public double Bmi() => 
+            10000.0 * _weight / (_height * _height);
     }
 
     
@@ -104,7 +63,7 @@ namespace ObjectOrientedProgrammingBasics
     {
         static void Main(string[] args)
         {
-            var you = new Person("Marcin", 100, 190);
+            var you = new Person("Marcin", 100, 190, new DateTime(2009,01,02));
 
             // Console.WriteLine(you.GetName());
             // you.SetName(null);
@@ -115,6 +74,7 @@ namespace ObjectOrientedProgrammingBasics
             you.Weight = 60;
             Console.WriteLine(you.Height);
             Console.WriteLine(you.Name);
+            Console.WriteLine(you.IsAdult);
 
             // you.Name = "Marcin";
             // you.Height = 180;
