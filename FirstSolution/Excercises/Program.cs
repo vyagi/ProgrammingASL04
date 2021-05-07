@@ -102,6 +102,10 @@ namespace Excercises
             }
             var average = 1.0 * sum / myList.Count;
             Console.WriteLine($"The sum is {sum} and the average is {average}");
+
+            //Task 11 - homework
+            //Task 12 - homework
+
         }
     }
 }
