@@ -33,6 +33,7 @@ namespace InvoiceManager
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.pathLabel = new System.Windows.Forms.Label();
             this.resultTextBox = new System.Windows.Forms.TextBox();
+            this.totalPaidButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openButton
@@ -70,11 +71,22 @@ namespace InvoiceManager
             this.resultTextBox.Size = new System.Drawing.Size(585, 377);
             this.resultTextBox.TabIndex = 3;
             // 
+            // totalPaidButton
+            // 
+            this.totalPaidButton.Location = new System.Drawing.Point(94, 33);
+            this.totalPaidButton.Name = "totalPaidButton";
+            this.totalPaidButton.Size = new System.Drawing.Size(100, 23);
+            this.totalPaidButton.TabIndex = 4;
+            this.totalPaidButton.Text = "Total per person";
+            this.totalPaidButton.UseVisualStyleBackColor = true;
+            this.totalPaidButton.Click += new System.EventHandler(this.totalPaidButton_Click);
+            // 
             // InvoiceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 450);
+            this.Controls.Add(this.totalPaidButton);
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.pathLabel);
             this.Controls.Add(this.pathTextBox);
@@ -92,6 +104,7 @@ namespace InvoiceManager
         private System.Windows.Forms.TextBox pathTextBox;
         private System.Windows.Forms.Label pathLabel;
         private System.Windows.Forms.TextBox resultTextBox;
+        private System.Windows.Forms.Button totalPaidButton;
     }
 }
 
