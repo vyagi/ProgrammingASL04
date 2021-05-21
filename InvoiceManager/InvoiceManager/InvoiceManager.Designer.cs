@@ -34,6 +34,7 @@ namespace InvoiceManager
             this.pathLabel = new System.Windows.Forms.Label();
             this.resultTextBox = new System.Windows.Forms.TextBox();
             this.totalPaidButton = new System.Windows.Forms.Button();
+            this.groupByMonth = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openButton
@@ -77,15 +78,26 @@ namespace InvoiceManager
             this.totalPaidButton.Name = "totalPaidButton";
             this.totalPaidButton.Size = new System.Drawing.Size(100, 23);
             this.totalPaidButton.TabIndex = 4;
-            this.totalPaidButton.Text = "Total per person";
+            this.totalPaidButton.Text = "Group by person";
             this.totalPaidButton.UseVisualStyleBackColor = true;
             this.totalPaidButton.Click += new System.EventHandler(this.totalPaidButton_Click);
+            // 
+            // groupByMonth
+            // 
+            this.groupByMonth.Location = new System.Drawing.Point(201, 33);
+            this.groupByMonth.Name = "groupByMonth";
+            this.groupByMonth.Size = new System.Drawing.Size(95, 23);
+            this.groupByMonth.TabIndex = 5;
+            this.groupByMonth.Text = "Group by month";
+            this.groupByMonth.UseVisualStyleBackColor = true;
+            this.groupByMonth.Click += new System.EventHandler(this.groupByMonth_Click);
             // 
             // InvoiceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 450);
+            this.Controls.Add(this.groupByMonth);
             this.Controls.Add(this.totalPaidButton);
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.pathLabel);
@@ -105,6 +117,7 @@ namespace InvoiceManager
         private System.Windows.Forms.Label pathLabel;
         private System.Windows.Forms.TextBox resultTextBox;
         private System.Windows.Forms.Button totalPaidButton;
+        private System.Windows.Forms.Button groupByMonth;
     }
 }
 

@@ -59,12 +59,58 @@ namespace InvoiceManager
                 {
                     summary[name] = amount;
                 }
+            }
 
-                resultTextBox.Text = $"Name\tAmount{Environment.NewLine}";
+            resultTextBox.Text = $"Name\tAmount{Environment.NewLine}";
 
-                foreach (var entry in summary)
+            foreach (var entry in summary)
+            {
+                resultTextBox.Text += $"{entry.Key}\t{entry.Value}{Environment.NewLine}";
+            }
+        }
+
+        private void groupByMonth_Click(object sender, EventArgs e)
+        {
+            var path = pathTextBox.Text;
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("The file does not exist. Cannot continue");
+                return;
+            }
+
+            var lines = File.ReadAllLines(path);
+            
+            var summary = new Dictionary<int, decimal>();
+
+            for (int i = 1; i < lines.Length; i++)
+            {
+                var line = lines[i];
+                var split = line.Split('\t');
+
+                var date = Convert.ToDateTime(split[1]);
+                var amount = Convert.ToDecimal(split[2]);
+
+                if (summary.ContainsKey(date.Month))
                 {
-                    resultTextBox.Text += $"{entry.Key}\t{entry.Value}{Environment.NewLine}";
+                    summary[date.Month] += amount;
+                }
+                else
+                {
+                    summary[date.Month] = amount;
+                }
+            }
+
+            resultTextBox.Text = $"Month\tAmount{Environment.NewLine}";
+
+            for (int month = 1; month <= DateTime.Today.Month; month++)
+            {
+                if (summary.ContainsKey(month))
+                {
+                    resultTextBox.Text += $"{month.ToString().PadLeft(2,'0')}\t{summary[month]}{Environment.NewLine}";
+                }
+                else
+                {
+                    resultTextBox.Text += $"{month.ToString().PadLeft(2, '0')}\t0{Environment.NewLine}";
                 }
             }
         }
