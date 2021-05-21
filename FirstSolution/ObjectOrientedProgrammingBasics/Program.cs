@@ -2,6 +2,21 @@
 
 namespace ObjectOrientedProgrammingBasics
 {
+    struct Vector
+    {
+        private double _x;
+        private double _y;
+
+        public double X => _x;
+        public double Y => _y;
+
+        public Vector(double x, double y)
+        {
+            _x = x;
+            _y = y;
+        }
+    }
+
     class Point
     {
         public static int Dummy;
@@ -78,6 +93,26 @@ namespace ObjectOrientedProgrammingBasics
             Console.WriteLine(reflectedP1.Y);
 
             Console.WriteLine(p1);
+
+            var a = 10;
+            var b = 20;
+            SomeMethod(a, b);
+
+            int[] d = {1, 2, 7, 3};
+            AnotherMethod(d);
+        }
+
+        public static void SomeMethod(int x, int u)
+        {
+            int temp;
+            temp = u;
+            u = x;
+            x = temp;
+        }
+
+        public static void AnotherMethod(int[] myArray)
+        {
+            myArray[0] = 100;
         }
     }
 }
