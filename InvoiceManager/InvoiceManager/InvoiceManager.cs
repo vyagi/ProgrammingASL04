@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InvoiceManager
@@ -45,19 +39,15 @@ namespace InvoiceManager
 
             for (int i = 1; i < lines.Length; i++)
             {
-                var line = lines[i];
-                var split = line.Split('\t');
+                var invoice = new Invoice(lines[i]);
 
-                var name = split[0];
-                var amount = Convert.ToDecimal(split[2]);
-
-                if (summary.ContainsKey(name))
+                if (summary.ContainsKey(invoice.Name))
                 {
-                    summary[name] += amount;
+                    summary[invoice.Name] += invoice.Amount;
                 }
                 else
                 {
-                    summary[name] = amount;
+                    summary[invoice.Name] = invoice.Amount;
                 }
             }
 
@@ -79,40 +69,44 @@ namespace InvoiceManager
             }
 
             var lines = File.ReadAllLines(path);
-            
+
+            var summary = ParseLines(lines);
+
+            DisplayResults(summary);
+        }
+
+        private Dictionary<int, decimal> ParseLines(string[] lines)
+        {
             var summary = new Dictionary<int, decimal>();
 
-            for (int i = 1; i < lines.Length; i++)
+            for (var i = 1; i < lines.Length; i++)
             {
-                var line = lines[i];
-                var split = line.Split('\t');
+                var invoice = new Invoice(lines[i]);
 
-                var date = Convert.ToDateTime(split[1]);
-                var amount = Convert.ToDecimal(split[2]);
-
-                if (summary.ContainsKey(date.Month))
-                {
-                    summary[date.Month] += amount;
-                }
+                if (summary.ContainsKey(invoice.Date.Month))
+                    summary[invoice.Date.Month] += invoice.Amount;
                 else
-                {
-                    summary[date.Month] = amount;
-                }
+                    summary[invoice.Date.Month] = invoice.Amount;
             }
 
+            return summary;
+        }
+
+        private void DisplayResults(Dictionary<int, decimal> summary)
+        {
             resultTextBox.Text = $"Month\tAmount{Environment.NewLine}";
 
-            for (int month = 1; month <= DateTime.Today.Month; month++)
+            for (var month = 1; month <= DateTime.Today.Month; month++)
             {
                 if (summary.ContainsKey(month))
-                {
-                    resultTextBox.Text += $"{month.ToString().PadLeft(2,'0')}\t{summary[month]}{Environment.NewLine}";
-                }
+                    resultTextBox.Text += FormatLine(month, summary[month]);
                 else
-                {
-                    resultTextBox.Text += $"{month.ToString().PadLeft(2, '0')}\t0{Environment.NewLine}";
-                }
+                    resultTextBox.Text += FormatLine(month, 0);
             }
         }
+
+        private string FormatLine(int month, decimal value) => $"{PadWithZero(month)}\t{value}{Environment.NewLine}";
+
+        private string PadWithZero(int month) => month.ToString().PadLeft(2, '0');
     }
 }
