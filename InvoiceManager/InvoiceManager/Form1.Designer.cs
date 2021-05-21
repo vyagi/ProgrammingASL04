@@ -43,6 +43,7 @@ namespace InvoiceManager
             this.openButton.TabIndex = 0;
             this.openButton.Text = "Open";
             this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // pathTextBox
             // 
