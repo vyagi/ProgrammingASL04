@@ -50,6 +50,7 @@ namespace InvoiceManager
             this.pathTextBox.Name = "pathTextBox";
             this.pathTextBox.Size = new System.Drawing.Size(544, 20);
             this.pathTextBox.TabIndex = 1;
+            this.pathTextBox.Text = "C:\\Users\\Marcin\\OneDrive\\Invoices.txt";
             // 
             // pathLabel
             // 
