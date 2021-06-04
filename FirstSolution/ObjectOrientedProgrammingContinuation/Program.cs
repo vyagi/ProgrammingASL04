@@ -53,7 +53,29 @@ namespace ObjectOrientedProgrammingContinuation
 
         public override double Perimeter() => 2 * (_a + _b);
     }
-    
+
+    public class Circle : Shape
+    {
+        private readonly double _r;
+
+        public Circle(double r) => _r = r;
+
+        public override double Area() => Math.PI * _r * _r;
+
+        public override double Perimeter() => Math.PI * 2 * _r;
+    }
+
+    public class Square : Shape
+    {
+        private readonly double _a;
+
+        public Square(double a) => _a = a;
+
+        public override double Area() => _a * _a;
+
+        public override double Perimeter() => _a * 4;
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -72,11 +94,13 @@ namespace ObjectOrientedProgrammingContinuation
 
             Console.WriteLine("Now some more interesting ****************");
 
-            List<Shape> myShapes = new List<Shape>();
+            var myShapes = new List<Shape>();
             myShapes.Add(t);
             myShapes.Add(r);
-
-            foreach (Shape myShape in myShapes)
+            myShapes.Add(new Square(10));
+            myShapes.Add(new Circle(5));
+            
+            foreach (var myShape in myShapes)
             {
                 Console.WriteLine($"Area is {myShape.Area()} and perimeter is {myShape.Perimeter()}");//polymorphism
             }
