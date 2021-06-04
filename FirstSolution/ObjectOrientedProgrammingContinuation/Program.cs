@@ -3,17 +3,27 @@ using System.Collections.Generic;
 
 namespace ObjectOrientedProgrammingContinuation
 {
-    public class Shape
+    public abstract class Shape
     {
-        public virtual double Area()
-        {
-            return 0;
-        }
+        public abstract double Area();
 
-        public virtual double Perimeter()
+        public abstract double Perimeter();
+    }
+
+    public class Rhombus : Shape
+    {
+        private readonly double _side;
+        private readonly double _angle;
+
+        public Rhombus(double side, double angle)
         {
-            return 0;
+            _side = side;
+            _angle = angle * Math.PI / 180.0;
         }
+        
+        public override double Area() => _side * _side * Math.Sin(_angle);
+
+        public override double Perimeter() => 4 * _side;
     }
 
     public class Triangle : Shape
@@ -80,11 +90,10 @@ namespace ObjectOrientedProgrammingContinuation
     {
         static void Main(string[] args)
         {
-            Shape s = new Shape();
-            var area = s.Area();
-            var perimeter = s.Perimeter();
-
-            Console.WriteLine($"Area is {area} and perimeter is {perimeter}");
+            // Shape s = new Shape();  //used to work but it does not anymore after I changed the Shape class to abstract
+            // var area = s.Area();
+            // var perimeter = s.Perimeter();
+            //Console.WriteLine($"Area is {area} and perimeter is {perimeter}");
 
             Triangle t = new Triangle(3,4,5);
             Console.WriteLine($"Area is {t.Area()} and perimeter is {t.Perimeter()}");
@@ -99,7 +108,8 @@ namespace ObjectOrientedProgrammingContinuation
             myShapes.Add(r);
             myShapes.Add(new Square(10));
             myShapes.Add(new Circle(5));
-            
+            myShapes.Add(new Rhombus(10, 90));
+
             foreach (var myShape in myShapes)
             {
                 Console.WriteLine($"Area is {myShape.Area()} and perimeter is {myShape.Perimeter()}");//polymorphism
